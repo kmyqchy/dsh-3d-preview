@@ -1,0 +1,90 @@
+{
+  "name": "dsh-3d-preview",
+  "version": "0.1.0",
+  "description": "DSH web plugin: inline 3D model preview (STL / 3MF) for dsh-better-sidebar, with Bambu Studio & OrcaSlicer plate detection and per-object filament colours.",
+  "type": "module",
+  "license": "MIT",
+  "author": "kmyqchy",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kmyqchy/dsh-3d-preview.git"
+  },
+  "homepage": "https://github.com/kmyqchy/dsh-3d-preview#readme",
+  "bugs": {
+    "url": "https://github.com/kmyqchy/dsh-3d-preview/issues"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "better-sidebar",
+    "dsh-better-sidebar",
+    "3d",
+    "3d-preview",
+    "stl",
+    "3mf",
+    "bambu",
+    "bambu-studio",
+    "orca",
+    "orcaslicer",
+    "three",
+    "preview",
+    "file-viewer"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "main": "./lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/client.js",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime"
+      ],
+      "platform": "web"
+    }
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "watch": "node scripts/build.mjs --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test \"test/**/*.test.mjs\""
+  },
+  "devDependencies": {
+    "@chestnutlabs/gcode-model-renderer": "^0.20.1",
+    "@types/node": "^24.0.0",
+    "@types/react": "~18.3.1",
+    "dsh-better-sidebar": "^0.19.1",
+    "esbuild": "^0.28.0",
+    "fflate": "^0.8.2",
+    "react": "^18.2.0",
+    "three": "0.178.0",
+    "typescript": "^5.6.0"
+  },
+  "peerDependencies": {
+    "dsh-better-sidebar": ">=0.4.0",
+    "react": "^18.2.0"
+  },
+  "peerDependenciesMeta": {
+    "dsh-better-sidebar": {
+      "optional": true
+    },
+    "react": {
+      "optional": true
+    }
+  }
+}

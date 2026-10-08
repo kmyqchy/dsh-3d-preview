@@ -1,0 +1,11 @@
+node_modules/
+*.tgz
+.DS_Store
+
+# NOTE: lib/ is deliberately NOT ignored.
+#
+# lib/index.js and lib/client.js are committed on purpose: `dsh plugin add
+# github:kmyqchy/dsh-3d-preview` packs this repo as-is, and the client bundle
+# inlines three + the model renderer, so building it needs the full
+# devDependency tree. Shipping the artifact keeps a GitHub install working
+# without a local build step.

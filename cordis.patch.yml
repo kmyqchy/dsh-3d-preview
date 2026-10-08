@@ -1,0 +1,15 @@
+# dsh-3d-preview bundle patch
+#
+# When the plugin is installed through the official CLI —
+#
+#   dsh plugin --profile <name> add dsh-3d-preview
+#
+# — the command reconciles `dsh.profile.bundles` against installed packages
+# and, seeing this declaration, appends `dsh-3d-preview` to the bundle stack.
+# The profile boot then merges THIS patch (a single `insert` of the plugin
+# row) exactly like a manual cordis.patch.yml mount line. The entry `name`
+# must equal the package name so the client-modules scan resolves the
+# package's ./client bundle and serves it at /plugins/dsh-3d-preview/client.js.
+- insert:
+    - id: 3d-preview
+      name: 'dsh-3d-preview'
