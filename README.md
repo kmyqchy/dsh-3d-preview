@@ -143,7 +143,8 @@ npm test           # node --test: the colour id-join regression suite
 
 `npm test` needs no browser: it builds a minimal Production-Extension project in memory and
 asserts that colours land on the right objects. It runs TypeScript sources directly through
-Node's type stripping.
+Node's type stripping, so it wants Node 22.6+; the shipped artifact is plain ES2020 ESM and
+runs on Node 20+.
 
 ### Bundle shape
 

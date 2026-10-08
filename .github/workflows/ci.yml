@@ -17,7 +17,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node: ['20', '22']
+        # 22 and 24 are the current LTS lines. The suite imports the TypeScript
+        # sources directly (Node's type stripping, 22.6+), and Node 20's
+        # `node --test` does not expand globs either; the published artifact is
+        # still plain ES2020 ESM and runs on Node 20+.
+        node: ['22', '24']
     steps:
       - uses: actions/checkout@v4
 

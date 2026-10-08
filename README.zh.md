@@ -115,7 +115,7 @@ npm run typecheck  # tsc --noEmit
 npm test           # node --test：配色 id 连接的回归测试
 ```
 
-`npm test` 不需要浏览器：它在内存里合成一个最小 Production-Extension 工程，断言颜色落到了正确的对象上。测试直接通过 Node 的类型剥离运行 TypeScript 源码。
+`npm test` 不需要浏览器：它在内存里合成一个最小 Production-Extension 工程，断言颜色落到了正确的对象上。测试直接通过 Node 的类型剥离运行 TypeScript 源码，因此需要 Node 22.6+；发布出去的产物是普通 ES2020 ESM，Node 20+ 即可运行。
 
 ### 产物形态
 

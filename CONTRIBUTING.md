@@ -29,6 +29,10 @@ npm test
 its type declarations) pulls `node-pty`, whose native build fails in many container
 images. Nothing in this plugin needs install scripts.
 
+The test suite needs **Node 22.6+**: it imports the TypeScript sources directly and relies
+on Node's type stripping. The published artifact does not — it is plain ES2020 ESM and
+runs on Node 20+.
+
 Guidelines:
 
 - Keep the client bundle self-contained. Only `react` and `react/jsx-runtime` may stay
